@@ -15,6 +15,7 @@ jobs:
         run: |
           export SHELL=/bin/bash
           eval $(minikube -p minikube docker-env)
+          ./gradlew build
           docker build -f ./Dockerfile -t local/example .
           echo -n "verifying images:"
           docker images
