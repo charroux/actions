@@ -27,6 +27,12 @@ jobs:
       - name: Deploy to minikube
         run:
           kubectl apply -f deployment.yaml
+      - name: Get pods
+        uses: nick-fields/retry@v2
+        with:
+          timeout_seconds: 10
+          max_attempts: 3
+          command: kubectl get pods
       - name: Test service URLs
         run: |
           kubectl get pods
