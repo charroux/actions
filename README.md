@@ -13,3 +13,11 @@ git checkout main
 git branch -D editcontroller       
 
 git push origin --delete editcontroller 
+
+Select branch editcontroller on Github
+
+Pull request
+
+Compare and pull request => create pull request
+
+Check actions 
