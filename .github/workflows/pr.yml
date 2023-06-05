@@ -27,16 +27,15 @@ jobs:
       - name: Deploy to minikube
         run:
           kubectl apply -f deployment.yaml
-      - name: Get pods
-        uses: nick-fields/retry@v2
-        with:
-          timeout_seconds: 10
-          max_attempts: 3
-          command: kubectl get pods
-      - name: Test service URLs
+      - name: Get service URLs
         run: |
           kubectl get pods
           minikube service list
           minikube service actions --url
           echo "------------------opening the service------------------"
-          curl $(minikube service actions --url)        
+      - name: Test service URLs
+        uses: nick-fields/retry@v2
+        with:
+          timeout_seconds: 10
+          max_attempts: 3
+          command: curl $(minikube service actions --url)
