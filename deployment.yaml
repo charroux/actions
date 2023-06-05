@@ -21,7 +21,7 @@ spec:
       containers:
       - name: actions
         image: charroux/actions:1
-        imagePullPolicy: Always
+        imagePullPolicy: Never
         ports:
         - containerPort: 8080
         resources: {}
