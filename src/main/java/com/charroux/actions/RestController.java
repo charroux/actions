@@ -7,7 +7,7 @@ public class RestController {
 
     @GetMapping("/")
     public String hello() {
-        return "Hello";
+        return "Salut";
     }
 
 }
